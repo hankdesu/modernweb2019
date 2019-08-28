@@ -18,6 +18,7 @@ const FinalFormTest = ({ fieldCount = 0, onSubmit }) => {
     return (
         <Container fluid style={{ padding: '1rem 1.5rem' }}>
             <Form
+                subscription={{ handleSubmit: true }}
                 onSubmit={onSubmit}
                 render={({ handleSubmit, form, values }) => {
                     return (
@@ -68,6 +69,11 @@ const FinalFormTest = ({ fieldCount = 0, onSubmit }) => {
                                                         name={`field${key}`}
                                                         key={key}
                                                         validate={validate}
+                                                        subscription={{
+                                                            value: true,
+                                                            error: true,
+                                                            touched: true
+                                                        }}
                                                     >
                                                         {({ input, meta }) => (
                                                             <FormRow>
